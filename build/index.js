@@ -9,6 +9,7 @@ const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 //import eventRouter from './routes/eventRoutes'
 const postRoutes_1 = __importDefault(require("./routes/postRoutes"));
 const databaseConection_1 = require("./database/databaseConection");
+const sessionsRoutes_1 = __importDefault(require("./routes/sessionsRoutes"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 (0, databaseConection_1.run)();
@@ -22,6 +23,8 @@ app.get('/ping', (_req, res) => {
 app.use('/api/user', userRoutes_1.default);
 app.use('/api/posts', postRoutes_1.default);
 //app.use('/api/events', eventRouter)
+//agregamos la ruta 
+app.use('/api/sessions', sessionsRoutes_1.default);
 app.listen(PORT, () => {
     console.log('el servidor esta escuchando en el puerto ' + PORT);
 });

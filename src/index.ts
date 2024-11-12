@@ -5,6 +5,7 @@ import userRouter from './routes/userRoutes'
 import postRouter from './routes/postRoutes'
 
 import { run } from './database/databaseConection'
+import sessionsRoutes from './routes/sessionsRoutes'
 
 const app = express()
 app.use(express.json())
@@ -23,6 +24,9 @@ app.get('/ping', (_req , res) => {
 app.use('/api/user', userRouter)
 app.use('/api/posts', postRouter)
 //app.use('/api/events', eventRouter)
+
+//agregamos la ruta 
+app.use('/api/sessions',sessionsRoutes)
 
 app.listen(PORT, () => {
     console.log('el servidor esta escuchando en el puerto '+ PORT)
